@@ -1,11 +1,12 @@
 #include <stdio.h>
+#define MAX 14
 
 int main(){
     int array[] = {2,4,6,8,10,1,3,5,7,9,11,13,25,22};
-    int i,mayor,menor, isDivisiblepor3,array_divisibles,indice;
+    int i,mayor,menor, contador = 0,array_divisibles , indice = 0 ;
     printf("Muestra por pantalla los elementos de valor par:\n");
 
-    for(i = 0; i<13; i++){ //el valor ------> array[i] || posiccion ------> i
+    for(i = 0; i<MAX; i++){ //el valor ------> array[i] || posiccion ------> i
         if(i % 2 == 0 ){
             printf("%d, %d\n", array[i], i);
         }
@@ -13,7 +14,7 @@ int main(){
     }
 
     printf("Muestra por pantalla los elementos que ocupan una posicion par:\n");
-    for ( i = 0; i < 13; i++)
+    for ( i = 0; i < MAX; i++)
     {
         if( array[i] % 2){
             printf("%d, %d\n", array[i], i);
@@ -22,7 +23,7 @@ int main(){
 
     printf("Muestra por pantalla el elemento menor:\n");
     array[1] = menor;
-    for (i = 1; i < 13; i++)
+    for (i = 1; i < MAX; i++)
     {
         if( array[i] < menor){
             menor = array[i];
@@ -32,7 +33,7 @@ int main(){
    
 
     array[0] = mayor;
-    for (i = 0; i < 13; i++)
+    for (i = 0; i < MAX; i++)
     {
         if( array[i] > mayor){
             mayor = array[i];
@@ -41,17 +42,20 @@ int main(){
     }
    
     printf("Copiar los divisibles por 3 en otro array del tamaño apropiado.\n");
-    isDivisiblepor3 = 0;
-    for(i = 0; i < 0; i++){
-        if( i % 3 == 0 ){
-            i++;
+    for(i = 0; i<MAX ; i++){
+        if( array[i] %3 == 0){
+            contador++;
         }
-    } 
-    array_divisibles = array[i];
-    indice = 0;
-
-    for(i = 0; i < 13; i++){
-        printf("%d", array_divisibles[i]);
     }
+
+   //array_divisibles[contador];
+
+   for(int i = 0; i < MAX; i++) {
+       if(array[i] % 3 == 0) {
+           //array_divisibles[indice] = array[i];
+           indice++;
+       }
+   }
    
-} 
+   
+} /////////------------> OBSERVACIONES IR DECLARANDO VARIABLES A ,EDIDA QUEVAMSO CREANDO EL DOCUMENTO NO AL PRINICPIO
