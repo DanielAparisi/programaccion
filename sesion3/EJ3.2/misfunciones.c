@@ -4,22 +4,25 @@
 void imprimeCadena(char array[]){
       printf("la cadena es: %s",array);
 }
-/*
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX		//cabecera de la funcion imprimeSinComas
-//función para mostrar la cadena "cad" sin modificarla
-{
-  XXXXXXXXXXXXXXXXXXXXXXXXXXXX		//bucle for para recorrer todo el array letra a letra hasta el \0 final
-  {
-     XXXXXXXXXXXXXXXXXXXXXXXXXXXX		//si no es una coma o un espacio
-     {
-        XXXXXXXXXXXXXXXXXXXXXXXXX		//si es una letra mayúscula
-           XXXXXXXXXXXXXXXXXXXXXX		//se imprime su minúscula
-        XXXX					//si no
-           XXXXXXXXXXXXXXXXXXXXX		//se imprime la letra tal cual
-     }
-  }
-}
 
+void imprimeSinComas(char array[]){
+  int i;
+  
+  //bucle for para recorrer todo el array letra a letra hasta el \0 final
+   for(i = 0; i < 25; i++){
+     if( array[i] == ',' && array[i] == '\0' && array[i] == '\t')	{
+         if( array[i] >= 'A' && array[i] <= 'Z'){
+
+            array[i]  -=  ('A'-'a');
+            printf("%s",array[i]);
+         }	else {
+            printf("%s",array[i]);
+         }
+         //se imprime la letra tal cual
+      }
+   }
+}
+/*
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX		//cabecera de la funcion modificaSinComas
 //funcion para modificar una cadena "cad" quitándole comas y espacios
 {
