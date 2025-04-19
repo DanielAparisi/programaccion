@@ -6,6 +6,8 @@ float encuentra_minimo(float array[], int numOfEl ) ;
 float calcula_media(float array[],int numOfEl );
 float encuentra_maximo (float array[],int numOfEl);
 void mostrarTemperaturas(float array[], int numOfEl);
+void mostrarTemperaturasPuntero( float *array, int numOfEl);
+
 
  
 int main() {
@@ -14,7 +16,6 @@ int main() {
     float minimo,maximo,media;
     int i;
 
-  
     printf("\tEl array es:\n");
     mostrarTemperaturas(temperaturas, 12);
     
@@ -69,6 +70,15 @@ float encuentra_maximo (float array[],int numOfEl){
     return ElMayor;
 }
 
+void mostrarTemperaturasPuntero( float *array, int numOfEl){ 
+    int i;
+
+    for(i = 0; i< numOfEl; i++){
+        printf("\t%.2f\n",  *(array + i));
+    }
+    
+}
+
 void mostrarTemperaturas( float array[], int numOfEl){ //no se pretende que devuelva nada
     int i;
 
@@ -77,3 +87,5 @@ void mostrarTemperaturas( float array[], int numOfEl){ //no se pretende que devu
     }
     
 }
+
+
