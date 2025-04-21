@@ -2,42 +2,44 @@
 #include "misfunciones.h" 
 
 void imprimeCadena(char array[]){
-      printf("la cadena es: %s",array);
+   printf("la cadena es: %s",array);
 }
 
 void imprimeSinComas(char array[]){
-  int i;
+  int i,j;
   
   //bucle for para recorrer todo el array letra a letra hasta el \0 final
-   for(i = 0; i < 25; i++){
-     if( array[i] == ',' && array[i] == '\0' && array[i] == '\t')	{
-         if( array[i] >= 'A' && array[i] <= 'Z'){
-
-            array[i]  -=  ('A'-'a');
-            printf("%s",array[i]);
-         }	else {
-            printf("%s",array[i]);
+   for(i = 0;  array[i]; i++){ // '\0' === 0
+     if( array[i] != ','  && array[i] != ' ')	{
+         for ( j = 0; array[j]  != '\0' ; j++)
+         {
+            array[j] =  array[ j + 1 ];
          }
-         //se imprime la letra tal cual
+         i--;  
       }
    }
 }
-/*
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX		//cabecera de la funcion modificaSinComas
-//funcion para modificar una cadena "cad" quitándole comas y espacios
-{
-  XXXXXXXXXXXXXXXXXXXXXXXXX		//bucle en i para recorrer todo el array hasta el \0 final
-  {
-     XXXXXXXXXXXXXXXXXXXXXXXXXXXX		//si la letra es coma o espacio
-     {
-        XXXXXXXXXXXXXXXXXXXXXXXXX		//bucle en j para desplazar hacia adelante todas las letras que estén por detrás
-        {  XXXXXXXXXXXXXXXXXX  }
-        XXXXX					//decrementamos i, así volveremos a explorar la nueva letra en la misma posición
-     }
-     else if (XXXXXXXXXXXXXXXXXXXXXXXXX)	//si es una letra mayuscula
-        XXXXXXXXXXXXXXXXXX			//la convertimos en minuscula
-  }
+void modificaSinComas(char *array){
+   int i;
+   char *p = (char *)&array;
+
+   for( i = 0 ; array[i] != '\0' ; i++ ){
+      if( array[i] != ','  && array[i] != ' '){
+         if( array[i] >= 'a' && array[i] <= 'z') { //si la posicion de i es minuscula 
+            printf("%c",array[i] - 32); //mirar codigo ASCII
+         }	else {
+            printf("%c",array[i]);
+         }
+      }
+   }
+
+
+
+
 }
+
+/*
+
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX		//cabecera de la funcion esPalindromo
 //averiguamos si la cadena de entrada "cad" es palindromo, sin modificar la cadena original
@@ -62,5 +64,8 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX		//cabecera de la funcion esPalindromo
 //----------------------------------------------------------------------------------------------------------
 
 
+
 */
+
+
 

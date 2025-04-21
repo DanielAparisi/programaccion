@@ -8,8 +8,8 @@
 
   void imprimeCadena(char cad[]);	//prototipos de funciones
   void imprimeSinComas(char cad[]);
-  //void modificaSinComas(char *cad);	//tambien sirve así, con *
-  //void esPalindromo(char *cad);
+  void modificaSinComas(char *cad);	//tambien sirve así, con *
+  void esPalindromo(char *cad);
 #endif          
 
 
