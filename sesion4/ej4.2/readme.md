@@ -80,4 +80,4 @@ XXXX ordenar(XXXXXXXXXXXXXXXXX)    //recibimos el array: su dirección de inicio
 
 
 
-//Comando de compilación:  gcc ej4.1.c misfunciones.c -o ej4
+//Comando de compilación:  gcc ej4.2.c misfunciones.c -o ej4
