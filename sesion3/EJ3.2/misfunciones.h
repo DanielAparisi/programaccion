@@ -1,5 +1,4 @@
 
-
 #include <stdio.h>      
 #include <string.h>      
 
@@ -8,7 +7,7 @@
 
   void imprimeCadena(char cad[]);	//prototipos de funciones
   void imprimeSinComas(char cad[]);
-  void modificaSinComas(char *cad);	//tambien sirve así, con *
+  void modificaSinComas(char *cad);	
   void esPalindromo(char *cad);
 #endif          
 

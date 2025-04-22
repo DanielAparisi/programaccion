@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "*.js": "javascript",
-        "algorithm": "c"
+        "algorithm": "c",
+        "string.h": "c"
     }
 }
