@@ -9,7 +9,7 @@ void recorrerArrayChar(float array[], int tam);
 int main() {
     //a) Crea un programa (el main), y en él un array de floats llamado temperaturas con 12 elementos (y dale valores).
     float temperaturas[MAX] = {112.32,564.33,786.42,982.765,821.111,230.960,456.720,347.212,753.999,503.659,432.005,348.654};	//declarar array temperaturas e inicializar con 12 valores cualesquiera
-
+    
     //b) Crea una función que muestre todas las temperaturas.
     printf("El array es:\n");
     muestraArray(temperaturas,MAX);
