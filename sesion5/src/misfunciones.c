@@ -6,7 +6,7 @@ tCumpleanios tomaDatos(void){
 
     struct aux ;
 
-    aux alumno1;
+    
   	//declaramos una variable struct auxiliar "aux"
     printf("Dame Nombre: "); 	
     scanf("%20[^\n]s");
