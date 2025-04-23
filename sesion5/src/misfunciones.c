@@ -1,27 +1,37 @@
-/*
 
-//FICHERO funciones5.c  (a guardar en la carpeta sesion5/src/):
+#include "include/misfunciones.h"	
 
-	//include de nuestro fichero de cabecera "funciones5.h"
 
-tCumpleanios tomaDatos(void)	//funcion para leer y devolver una variable struct desde teclado
-{
-  XXXXXXXXXXXXXXX		//declaramos una variable struct auxiliar "aux"
-  printf("Dame Nombre: "); XXXXXXXXXXXXXXXXXXXXXXXXXXXXX		//leemos en aux el nombre por teclado (scanf)
-  do
-  {  printf("Dame Dia del cumpleaños (1-31): "); XXXXXXXXXXXXXXXXXXXXXXXXXX	//leemos el dia por teclado
-  } while (XXXXXXXXXXXXXXXXXXXXXXXXX);		//mientras el dia no sea del 1 al 31
-  do
-  {  printf("Dame Mes del cumpleaños (1-12): "); XXXXXXXXXXXXXXXXXXXXXXXXXX	//leemos el mes por teclado (introducir el nº de mes)
-  } while (XXXXXXXXXXXXXXXXXXXXXXXXX);		//mientras el mes no sea del 1 al 12
-  //getchar();				//borramos el \n del buffer del teclado, que queda tras el último scanf
-  XXXXXXXXXXXX				//retornamos la variable struct auxiliar aux
+tCumpleanios tomaDatos(void){
+
+    struct aux ;
+
+    aux alumno1;
+  	//declaramos una variable struct auxiliar "aux"
+    printf("Dame Nombre: "); 	
+    scanf("%20[^\n]s");
+    
+  //leemos en aux el nombre por teclado (scanf)
+  do {  
+    printf("Dame Dia del cumpleaños (1-31): "); 
+    	//leemos el dia por teclado
+  } while ("");	
+
+  do  {  
+    printf("Dame Mes del cumpleaños (1-12): "); 	//leemos el mes por teclado (introducir el nº de mes)
+  } while ("");	
+  
+  //mientras el mes no sea del 1 al 12
+  getchar();				//borramos el \n del buffer del teclado, que queda tras el último scanf
+  
+  
+  return aux.nombre //retornamos la variable struct auxiliar aux
 }
-
 void muestraDatos(tCumpleanios dato)	//funcion para imprimir una estructura de tipo tCumpleanios
 {
-  printf("Nombre: %s\tDia: %u\tMes: %u\n", XXXXXXXXX, XXXXXXXXXXXXXX, XXXXXXXXXXXXXX);
+  printf("Nombre: %s\tDia: %u\tMes: %u\n");
 }
+/*
 
 void buscaAbril(tCumpleanios array[], int tam)	//funcion para buscar los nacidos en Abril, recibe el array de estructuras
 {
@@ -81,6 +91,8 @@ XXXX buscaIguales(XXXXXXXXXXXXXXX, XXXXXXX)	//funcion para buscar cumpleaños ig
   }
 }
 
-
-
 */
+
+
+
+

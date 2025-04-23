@@ -1,4 +1,6 @@
-/*
+
+
+//===============================================================================
 //FICHERO funciones5.h  (a guardar en la carpeta sesion5/include/):
 
 #include <stdio.h>
@@ -33,11 +35,8 @@
   } tCumpleanios;
 
   //declaraciones prototipo de mis 5 funciones (copiar las cabeceras de las funciones y poner ; al final):
-  XXXXXXXXXXXXXXXXXXXXXXXX;
-  XXXXXXXXXXXXXXXXXXXXXXXX;
-  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
-  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
-  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
+
 #endif		//final del bloque de compilacion condicional
 
-*/
+
+
