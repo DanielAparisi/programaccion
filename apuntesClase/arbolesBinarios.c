@@ -1,7 +1,6 @@
 /* Recorridos en un arbol binario */
 #include <stdio.h>
 #include <stdlib.h>
-
 /* Declaraciones globales */
 typedef struct datos      //tipo struct de cada nodo del árbol
 {
