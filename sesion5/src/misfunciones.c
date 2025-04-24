@@ -1,35 +1,37 @@
-
-#include "include/misfunciones.h"	
+#include "misfunciones.h"	
 
 
 tCumpleanios tomaDatos(void){
 
-    struct aux ;
+  tCumpleanios aux ; //struct en este caso es aux, asi se define la cadena
 
-    
-  	//declaramos una variable struct auxiliar "aux"
-    printf("Dame Nombre: "); 	
-    scanf("%20[^\n]s");
-    
-  //leemos en aux el nombre por teclado (scanf)
+  //declaramos una variable struct auxiliar "aux"
+  printf("Dame Nombre: "); 	
+  scanf("%19[^\n]s", aux.nombre); //el tamaño es MAX-1 para dejar un byte final es \0, el & no se pone es una excepcion cuando estamoms lleyendo un array de chars 
+  
   do {  
-    printf("Dame Dia del cumpleaños (1-31): "); 
-    	//leemos el dia por teclado
-  } while ("");	
 
-  do  {  
+    printf("Dame Dia del cumpleaños (1-31): "); 
+    scanf("%d", &aux.fecha.dia); //aqui si que le guardamos tambien su direccion de memoria
+
+  } while (aux.fecha.dia < 1 || aux.fecha.dia > 31);	
+
+  do {  
+
     printf("Dame Mes del cumpleaños (1-12): "); 	//leemos el mes por teclado (introducir el nº de mes)
-  } while ("");	
+    scanf("%u", &aux.fecha.mes);
+
+  } while (aux.fecha.mes < 1 || aux.fecha.mes > 31);	
   
   //mientras el mes no sea del 1 al 12
   getchar();				//borramos el \n del buffer del teclado, que queda tras el último scanf
   
-  
-  return aux.nombre //retornamos la variable struct auxiliar aux
+  return aux;
 }
-void muestraDatos(tCumpleanios dato)	//funcion para imprimir una estructura de tipo tCumpleanios
-{
-  printf("Nombre: %s\tDia: %u\tMes: %u\n");
+void muestraDatos(tCumpleanios dato){	//funcion para imprimir una estructura de tipo tCumpleanios el dato es un nombre inventado para esa variable receptora tcumpleanios 
+
+  printf("Nombre: %s\tDia: %u\tMes: %u\n", dato.nombre, dato.fecha.dia, dato.fecha.mes);
+
 }
 /*
 

@@ -17,3 +17,11 @@ pasos(BASICOS)
 2- reservo  meomoria 
 3- creo un dato
 4- lo concateno en las listas enlazadas 
+ 
+
+EJERCICIOS ARBOLES BINARIOS
+
+    1- CREAR ARBOL BINARIO
+    2- EXPLORAR CONTENIDO {PREORDERN , INORDEN, POSTORDEN }
+    3-BUSCAR ELEMENTOS 
+    4- BORRAR ARBOL

@@ -1,6 +1,10 @@
-#include "include/misfunciones.h"
+#include "misfunciones.h"
 
 int main() {
+
+  setvbuf(stdout, NULL, _IONBF,0);
+  setlocale(0, ""); // por defecto: configuración regional
+
   //a) Crea un programa (el main) con los enumerados y estructuras de la página anterior:
   tCumpleanios UnaPersona; 			// Declaramos una variable UnaPersona de tipo tCumpleanios
   tCumpleanios Persona[MAX_CUMPLEANIOS]; 	// Declaramos un array Persona de tipo tCumpleanios
