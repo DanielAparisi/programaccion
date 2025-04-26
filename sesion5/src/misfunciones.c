@@ -1,6 +1,5 @@
 #include "misfunciones.h"	
 
-
 tCumpleanios tomaDatos(void){
 
   tCumpleanios aux ; //struct en este caso es aux, asi se define la cadena
@@ -10,10 +9,8 @@ tCumpleanios tomaDatos(void){
   scanf("%19[^\n]s", aux.nombre); //el tamaño es MAX-1 para dejar un byte final es \0, el & no se pone es una excepcion cuando estamoms lleyendo un array de chars 
   
   do {  
-
     printf("Dame Dia del cumpleaños (1-31): "); 
     scanf("%d", &aux.fecha.dia); //aqui si que le guardamos tambien su direccion de memoria
-
   } while (aux.fecha.dia < 1 || aux.fecha.dia > 31);	
 
   do {  
@@ -28,26 +25,31 @@ tCumpleanios tomaDatos(void){
   
   return aux;
 }
+
+
 void muestraDatos(tCumpleanios dato){	//funcion para imprimir una estructura de tipo tCumpleanios el dato es un nombre inventado para esa variable receptora tcumpleanios 
 
   printf("Nombre: %s\tDia: %u\tMes: %u\n", dato.nombre, dato.fecha.dia, dato.fecha.mes);
 
 }
-/*
 
-void buscaAbril(tCumpleanios array[], int tam)	//funcion para buscar los nacidos en Abril, recibe el array de estructuras
-{
+void buscaAbril(tCumpleanios array[], int tam)	{
   int encontrado=0;			//variable de tipo booleano (0 o 1)(falso o cierto)
-  XXXXXXXXXXXXXXXXXXXXXXX		//bucle en i para explorar todo el array
-  { XXXXXXXXXXXXXXXXXXXXXXXXXXXXX	//si el mes del elemento actual es Abril
-    {  XXXXXXXXXXXXXXXXXXXXXXXXXX	//imprimimos el nombre de la persona
-       encontrado=1;			//ponemos encontrado a cierto
-    }
+  for( int i = 0; i < tam; i++ )	{
+
+    if( array[i].fecha.mes == Abril ){//Poner Abril es igual  que poner 4, todo eso grcias al enum
+      printf("las personas nacidas en abril son:%s\n",&array[i].nombre);
+      encontrado = 1;
+    } 
+  }	
+  if(!encontrado){ // encontrado == 0 es igual !encontrado
+    printf("ninguno");
   }
-  XXXXXXXXXXXXXXX			//si no hemos encontrado ninguno de Abril
-    printf("Ninguno\n");
+	
 }
 
+
+/*
 void buscaUltimo(XXXXXXXXXXXXXXXX, XXXXXXXXX)		//funcion para buscar el ultimo cumpleaños del año, recibe el array de estructuras
 {
   int posicUltimo=0;			//variable para guardar la posición del elemento buscado, inicialmente a 0
