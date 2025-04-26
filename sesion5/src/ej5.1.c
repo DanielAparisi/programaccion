@@ -29,9 +29,9 @@ int main() {
   buscaAbril( Persona, MAX_CUMPLEANIOS);
 
   //e) Crea una función que busque en el array el alumno que cumple los años más tarde (en el año) y lo muestre por pantalla:
-  
+
   printf("\nLa persona que cumple años más tarde es:\n");
-  //llamamos a la función buscaUltimo() pasándole el array como argumento de entrada
+  buscaUltimo( Persona, MAX_CUMPLEANIOS);
 
   //f) Crea una función que busque en el array todos los alumnos cuyo cumpleaños coincide con el de otro alumno y muestra todos por pantalla:
   //printf("\nLas personas con cumpleaños iguales son:\n");

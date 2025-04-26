@@ -26,7 +26,6 @@ tCumpleanios tomaDatos(void){
   return aux;
 }
 
-
 void muestraDatos(tCumpleanios dato){	//funcion para imprimir una estructura de tipo tCumpleanios el dato es un nombre inventado para esa variable receptora tcumpleanios 
 
   printf("Nombre: %s\tDia: %u\tMes: %u\n", dato.nombre, dato.fecha.dia, dato.fecha.mes);
@@ -48,29 +47,26 @@ void buscaAbril(tCumpleanios array[], int tam)	{
 	
 }
 
-
-/*
-void buscaUltimo(XXXXXXXXXXXXXXXX, XXXXXXXXX)		//funcion para buscar el ultimo cumpleaños del año, recibe el array de estructuras
-{
+void buscaUltimo(tCumpleanios array[], int tam) {
   int posicUltimo=0;			//variable para guardar la posición del elemento buscado, inicialmente a 0
-  XXXXXXXXXXXXXXXXXXXXXXX		//bucle para explorar el array desde el 2º elemento 
+  for( int i = 1; i < tam; i++)		//bucle para explorar el array desde el 2º elemento 
   {
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX	//si el mes actual es mayor que el de posicUltimo
+    if( array[i].fecha.mes > array[posicUltimo].fecha.mes)	//si el mes actual es mayor que el de posicUltimo
     {  
-       XXXXXXXXXX			//actualizamos posicUltimo con i
+       	posicUltimo = i ; //
     }
-    else if XXXXXXXXXXXXXXXXXXXXXXX	//si el mes actual es igual que el de posicUltimo
+    else if (  array[i].fecha.mes = array[posicUltimo].fecha.mes)	
     {
-      XXXXXXXXXXXXXXXXXXX		//si el dia actual es mayor que el de posicUltimo
-      {
-         XXXXXXXXXXXXXXXX		//actualizamos posicUltimo con i
+      if(array[i].fecha.dia > array[posicUltimo].fecha.mes ) {
+        posicUltimo = i;		
       }
     }
   }
   //mostramos los 3 datos del elemento buscado que está en la posición posicUltimo:
-  muestraDatos(XXXXXXXXXXXXXXXXXX);
-}
+ // muestraDatos(XXXXXXXXXXXXXXXXXX);
 
+}
+/*
 XXXX buscaIguales(XXXXXXXXXXXXXXX, XXXXXXX)	//funcion para buscar cumpleaños iguales, recibe el array de estructuras
 {
   int imprimido[tam];		//array para indicar qué elementos ya han sido imprimidos (puede haber más de 2 iguales)
