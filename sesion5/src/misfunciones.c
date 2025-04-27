@@ -63,36 +63,35 @@ void buscaUltimo(tCumpleanios array[], int tam) {
     }
   }
   //mostramos los 3 datos del elemento buscado que está en la posición posicUltimo:
- // muestraDatos(XXXXXXXXXXXXXXXXXX);
+  muestraDatos(array[posicUltimo]);
 
 }
-/*
-XXXX buscaIguales(XXXXXXXXXXXXXXX, XXXXXXX)	//funcion para buscar cumpleaños iguales, recibe el array de estructuras
-{
+
+void  buscaIguales( tCumpleanios array[],int tam ) {
+  int i,j;
+
   int imprimido[tam];		//array para indicar qué elementos ya han sido imprimidos (puede haber más de 2 iguales)
   for (int i=0; i<tam; i++)  
-     imprimido[i]=0;    	//en principio todos a 0 falso (ninguno ha sido imprimido)
-  XXXXXXXXXXXXXXXXXXXXXXXX	//bucle en i para el primer elemento a comparar (desde 0 hasta tam-1)
-  {
-    XXXXXXXXXXXXXXXXXXXXXXXX	//bucle en j para el 2º elemento a comparar (desde el i+1 en adelante)
-    {
-      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX	//si el mes y dia coinciden en elementos [i] y [j]
+    imprimido[i] = 0;    	//en principio todos a 0 falso (ninguno ha sido imprimido), es
+  for( i= 0; i < tam -1 ; i++ ) {	//bucle en i para el primer elemento a comparar (desde 0 hasta tam-1)
+   
+    for(j = 0; j < tam + 1; j++){	//bucle en j para el 2º elemento a comparar (desde el i+1 en adelante)
+    
+      if( array[i].fecha.mes == array[i].fecha.dia && array[j].fecha.mes == array[j].fecha.dia  )	//si el mes y dia coinciden en elementos [i] y [j]
       {
-         if (imprimido[i]==0)		//si el primer elemento [i] no está imprimido
-         {  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX	//imprimir los datos del elemento [i]
-            XXXXXXXXXXXXXXXXX		//ponemos imprimido[i] a cierto (1)
+         if (imprimido[i]==0) {  
+
+          printf("%d", array[i]);	
+          imprimido[i] = 1;	
          }
-         XXXXXXXXXXXXXXXXXXXX		//si el segundo elemento [j] no está imprimido
-         {  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX	//imprimir los datos del elemento [j]
-            XXXXXXXXXXXXXXXXX		//ponemos imprimido[j] a cierto (1)
+
+         if( imprimido[j] == 0) {	
+          
+          printf("%d", array[j]);	
+          imprimido[j] = 1;		
+
          }
       }
     }
   }
 }
-
-*/
-
-
-
-
