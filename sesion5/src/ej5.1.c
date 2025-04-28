@@ -2,8 +2,8 @@
 
 int main() {
   int i;
-  setvbuf(stdout, NULL, _IONBF,0);
-  setlocale(LC_ALL, ""); // por defecto: configuración regional
+  setvbuf(stdout, NULL, _IONBF, 0);
+  setlocale(LC_ALL, ""); 
 
   tCumpleanios UnaPersona; 			// Declaramos una variable UnaPersona de tipo tCumpleanios
   tCumpleanios Persona[MAX_CUMPLEANIOS]; 	// Declaramos un array Persona de tipo tCumpleanios
@@ -23,6 +23,7 @@ int main() {
   for( i = 0; i < MAX_CUMPLEANIOS; i++) {
 
     muestraDatos(Persona[i]);
+
   }
 
   printf("\nLos nacidos en Abril son:\n");

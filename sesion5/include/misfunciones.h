@@ -33,7 +33,7 @@
   void muestraDatos(tCumpleanios dato);
   void buscaAbril(tCumpleanios array[], int tam);
   void buscaUltimo(tCumpleanios array[], int tam);
-  void  buscaIguales( tCumpleanios array[],int tam );
+  void buscaIguales( tCumpleanios array[],int tam );
   
 #endif		
 

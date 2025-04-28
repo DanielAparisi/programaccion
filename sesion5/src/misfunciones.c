@@ -48,7 +48,7 @@ void buscaAbril(tCumpleanios array[], int tam)	{
 }
 
 void buscaUltimo(tCumpleanios array[], int tam) {
-  int posicUltimo=0;			//variable para guardar la posición del elemento buscado, inicialmente a 0
+  int posicUltimo=0;			//variable para guardar la posición del elemento buscado, inicialmente a 0, es un indice 
   for( int i = 1; i < tam; i++)		//bucle para explorar el array desde el 2º elemento 
   {
     if( array[i].fecha.mes > array[posicUltimo].fecha.mes)	//si el mes actual es mayor que el de posicUltimo
@@ -72,23 +72,24 @@ void  buscaIguales( tCumpleanios array[],int tam ) {
 
   int imprimido[tam];		//array para indicar qué elementos ya han sido imprimidos (puede haber más de 2 iguales)
   for (int i=0; i<tam; i++)  
-    imprimido[i] = 0;    	//en principio todos a 0 falso (ninguno ha sido imprimido), es
+    imprimido[i] = 0;    	//INICIALIZAMOS TODO LOS LEMENTOS A 0 (estado:false ó useState(false))
   for( i= 0; i < tam -1 ; i++ ) {	//bucle en i para el primer elemento a comparar (desde 0 hasta tam-1)
    
-    for(j = 0; j < tam + 1; j++){	//bucle en j para el 2º elemento a comparar (desde el i+1 en adelante)
+    for(j = i; j < tam; j++){	//bucle en j para el 2º elemento a comparar (desde el i+1 en adelante)
     
-      if( array[i].fecha.mes == array[i].fecha.dia && array[j].fecha.mes == array[j].fecha.dia  )	//si el mes y dia coinciden en elementos [i] y [j]
-      {
-         if (imprimido[i]==0) {  
+      if( array[i].fecha.mes && array[j].fecha.mes == array[i].fecha.dia && array[j].fecha.dia) {
 
-          printf("%d", array[i]);	
-          imprimido[i] = 1;	
+         if (imprimido[i]==0) {  //si la variable imprimido nunca ha cambiado de estado, significo que nuca se ha impreso todavia
+
+          muestraDatos(array[i]);
+          imprimido[i] = 1;	//lo ponemos a true
+
          }
 
          if( imprimido[j] == 0) {	
           
-          printf("%d", array[j]);	
-          imprimido[j] = 1;		
+          muestraDatos(array[j]);
+          imprimido[j] = 1;		//los ponemos a true
 
          }
       }
