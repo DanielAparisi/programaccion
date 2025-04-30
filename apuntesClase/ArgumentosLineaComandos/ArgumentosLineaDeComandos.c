@@ -7,7 +7,7 @@ int esnumero(char *cad)		//devuelve 1 (cierto) si la cadena cad es numérica
 {
    for (int i=0; i<strlen(cad); i++)
    {  if ( (cad[i]<'0' || cad[i]>'9') && (cad[i]!='+') )  //si no es un dígito del 0 al 9
-         return 0;
+      return 0;
    }
    return 1;
 }
