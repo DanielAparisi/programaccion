@@ -36,3 +36,17 @@ void ImprimeDoble( int argc,  char *argv[]){
     }
 
 }
+
+unsigned long factorial( int n){
+    int i;
+
+    if( n == 0) {
+
+        return (unsigned long)1;
+
+    } else {
+
+        return n * factorial(n - 1 );
+    }
+    
+}

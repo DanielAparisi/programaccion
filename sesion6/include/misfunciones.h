@@ -7,5 +7,6 @@
     #define MISFUNCIONES_H
     void uneArgumentos( int argc,  char *argv[]); 
     void ImprimeDoble( int argc,  char *argv[]);
+    unsigned long factorial( int n);
 
 #endif
