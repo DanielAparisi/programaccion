@@ -2,19 +2,28 @@
 
 int main(int argc, char *argv[]) {
     int i;
+    int longitudTotal = 0; //con esta variable sumamos todos los cracteres de todos los argumentos 
 
+    printf("El programa es :%s\n", argv[0]);
 
-    printf("El programa es :%s", argv[0]);
     if ( argc < 2){
+
         printf("\nno se encontraron argumentos en linea de comandos del programa %s\n", argv[i]);
-    } else{
-        printf("\nlos argumento son :%s\n", argc - 1);
-        for( i = 0; i <argc ; i++){
-            printf ("\nlos argumentos son: %d\n", argv[i]);
-            printf ("\nlos argumentos de dato entero son: %d\n", atoi(argv[i]));
-            printf("\nlos argumentos de dato real son: %.2f\n", atof(argv[i]));
-    
-        }
-       
+
+    } else if(argc >= 2) {
+
+        printf("\nHay %d Argumentos \n", argc - 1);
+
+        for( i = 1; i < argc  ; i++){
+
+            printf ("\nlos argumentos son: %s\n", argv[i]);
+            
+        } 
+
+        uneArgumentos(argc, &*argv);
     }   
+
+
+
+    return 0;
 }
