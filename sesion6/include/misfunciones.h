@@ -6,5 +6,6 @@
 #ifndef MISFUNCIONES_H
     #define MISFUNCIONES_H
     void uneArgumentos( int argc,  char *argv[]); 
+    void ImprimeDoble( int argc,  char *argv[]);
 
 #endif

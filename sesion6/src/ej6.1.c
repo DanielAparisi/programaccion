@@ -21,6 +21,10 @@ int main(int argc, char *argv[]) {
         } 
 
         uneArgumentos(argc, &*argv);
+
+        printf("El doble de su valor es :");
+        ImprimeDoble(argc, &*argv);
+        
     }   
 
 

@@ -1,12 +1,8 @@
 #include "misfunciones.h"
 
-
-
 void uneArgumentos( int argc,  char *argv[]){
     int i;
     int longitudTotal = 0; //con esta variable sumamos todos los cracteres de todos los argumentos 
-
-
 
     for ( i = 1 ; i < argc; i++) { 
 
@@ -23,4 +19,20 @@ void uneArgumentos( int argc,  char *argv[]){
     
     printf("los Argumentos  unidos quedan asi %s\n", cadenaTotal);
    
+}
+
+void ImprimeDoble( int argc,  char *argv[]){
+    int i;
+
+    for( i = 1; i < argc; i++){
+        if(  1 <= atoi(argv[i])  ){
+
+            printf("\nSu valor es %d\n", 2*atoi(argv[i]));
+            
+        } else {
+
+            printf("No es un valor positivo la cadena ");
+        }
+    }
+
 }
