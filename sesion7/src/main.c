@@ -20,11 +20,12 @@ int main( int argc, char *argv[]){
     }
 
     pf = fopen ("./miPrimerFichero.txt","w+"); // Open a TEXT file
-    if ( pf == NULL ){
-        printf ("Error opening %s.txt. Does it exist?\n", argv[argc - 1]);
-        exit(1);
+    if( pf != NULL){
+        fputs("Holaaa", pf);
+        fprintf(pf,"Que pasa wasaaaa");
+    }else {
+        printf("Error");
     }
-
     fclose(pf);
 
     return 0;
