@@ -2,7 +2,7 @@
 
 void main()
 {
-  char cadena[50];
+  char cadena[50]; //BUFFER
   int day =0, month =0, year =0;
   char car;
   FILE * pFichero = NULL;
