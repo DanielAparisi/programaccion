@@ -1,16 +1,20 @@
 #include "misfunciones.h"
 
-	//cabecera de main para recibir argumentos en la línea de comandos
- int main( int argc, int *argv[]){
-   if( argc != 1) {     
+	
+int main( int argc, int *argv[]){
+
+    if( argc != 2) {     
 
         printf("ERROR: debes aportar un nombre de fichero.\n"); exit(0); 
+        
+    } else {
+        creaFichero(argv[1]);
+        muestraFichero(argv[1]);
     }
-/*
-   //b) Crea una función que escriba en el fichero algo leido del teclado. Si el fichero no existe debe crearlo. 
-   //Si el fichero existe debe escribir al final del mismo.
-   XXXXXXXXXXXXXXXXXXXXXX	//llamamos a la función creaFichero() y le pasamos el nombre del fichero
 
+    return 0;
+}
+/* 
    //c) Crea una función que muestre el contenido del fichero por pantalla. Si el fichero no existe, emitir mensaje de error
    XXXXXXXXXXXXXXXXXXXXXXX	//llamamos a la función muestraFichero() y le pasamos el nombre del fichero
 

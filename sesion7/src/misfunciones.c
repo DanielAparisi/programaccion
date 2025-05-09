@@ -1,42 +1,57 @@
-#include "misfunciones.h"		//incluimos nuestro fichero de cabecera, que contiene las declaraciones de nuestras funciones
+#include "misfunciones.h"	
 
 void  creaFichero(char *nombreFich){
-   				//declaramos un puntero a FILE pf
-   	//llamamos a fopen para abrir el fichero en modo "append" (a)
-   			//si se ha producido un error de apertura de fichero
-   {  printf("ERROR de apertura del fichero %s\n", nombreFich);
-      return;				//salimos de la función
-   }
-   			//declaramos una cadena de 100 caracteres
-   printf("Dame un texto a grabar, seguido de Enter: ");	
-   		//leemos por teclado una frase para la cadena (con fgets - stdin)
-			//grabamos la cadena en el fichero (fputs)
-   			//si hay error de grabación
-      printf("ERROR al grabar en el fichero.\n");
-   				//cerramos el fichero
-}
-/*
+   	FILE * fp;
+    fp  = fopen("./texto.txt","r+");
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX	//cabecera de la función muestraFichero, recibe una cadena nombreFich con el nombre del fichero
-{
-   XXXXXXXXX				//declaramos un puntero a FILE pf
-   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX	//llamamos a fopen para abrir el fichero en modo "read" (r)
-   XXXXXXXXXXXXXXX			//si se ha producido un error de apertura de fichero
-   {  printf("ERROR: el fichero %s no existe.\n", nombreFich);	//informamos por pantalla que el fichero no existe
-      XXXXXXX				//salimos de la función
-   }
-   XXXXXXXXXXXXXX			//declaramos una cadena de 100 caracteres
-   printf("El contenido del fichero %s es:\n", nombreFich);
-   XXXXXXXXXXXXXXXXXXXXXXX		//leemos la primera frase del fichero en la cadena (fgets)(hasta el \n del fichero)
-   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX	//mientras no sea el fin del fichero y no se produzca un error de lectura
-   {
-      XXXXXXXXXXXXXXXXXXXX		//imprimimos la cadena en pantalla
-      XXXXXXXXXXXXXXXXXXXXX		//leemos la siguiente frase del fichero en la cadena (fgets)(hasta el \n)
-   }
-   XXXXXXXXXXXXXXXXXXX			//si se ha producido un error de lectura
-      printf("ERROR al leer el fichero %s.\n", nombreFich);	//imprimimos mensaje de error en pantalla
-   XXXXXXXXXX				//cerramos el fichero
+    if( fp != NULL) {
+        perror("ERROR de apertura del fichero %s\n"); //sirve para imprimir un mensaje de error descriptivo en la salida estándar de errores (stderr).
+        exit(1);				
+    } else {
+        char buffer[100];
+        printf("Dame un texto a grabar, seguido de Enter: ");
+        fgets( buffer, 100,stdin); //GRABAMOS EL ARCHIVO
+
+        if( ferror(fp)){
+            printf("ERROR al grabar en el fichero.\n");
+            fclose(fp);
+        }
+
+    }
 }
+
+
+
+void muestraFichero(char *nombreFich) {
+   FILE * file;				//declaramos un puntero a FILE pf
+   
+   file = fopen("texto.txt","r");  
+   if( file == NULL) {
+    
+    perror("No se encuentra ese Archivo");	//informamos por pantalla que el fichero no existe
+    exit(1);	//salimos de la función
+   }
+
+   char cadAux[100];			//declaramos una cadena de 100 caracteres para guardar ahi los datos recogido por teclado
+   printf("El contenido del fichero %s es:\n", nombreFich);
+   fgets(cadAux,sizeof(cadAux - 1), stdin);	 // -1 porque no cogemos el \0
+   	
+   while ( !ferror(file) && !feof(file)) {
+    printf(" La cadena es : %s", cadAux);
+    fgets(cadAux,sizeof(cadAux), stdin);
+    fputs(cadAux, file);
+
+   }
+ 
+   if( ferror(file)) {
+    perror("ERROR al leer el fichero\n");
+    fclose(file);
+   }			
+   
+}
+
+
+/*
 
 //SOLUCION CARGANDO TODO EL TEXTO EN MEMORIA:
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX	//cabecera de la función cambiaLetras
@@ -73,8 +88,10 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX	//cabecera de la función cambiaLetras
    }
    XXXXXXXXXX				//cerramos el fichero
 }
-
 */
+
+
+
 
 /*
 SOLUCION LEYENDO LETRA A LETRA Y USANDO fseek:
