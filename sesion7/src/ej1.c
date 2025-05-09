@@ -2,22 +2,17 @@
 
 
 int main( int argc, char *argv[]){
-
     int i;
-    printf("El programa es:%s",argv[0]);
-    printf("El programa tiene %d",argc -1);
+    char buffer[50];
+    FILE * fp;
+    
+    fp = fopen("./testo.txt","w+");
 
-    if( argc < 2){
-
-        printf("No encontraron argumentos en lines de comandos:(\n" );
+    if( fp != NULL){
+        mostrarArgumentosPorLineasDeComandos(fp, argc, *&argv);
     } else {
-        for ( i = 0; i < argc; i++)
-        {
-           printf("Los arguemntos recojidos en lineas de comandos son : %s\n", argv[i]);
-
-        }
+        printf("Error, no se encontro el Archivo");
     }
 
-    
     return 0;
 }
