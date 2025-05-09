@@ -1,55 +1,30 @@
 #include "misfunciones.h"	
 
 void  creaFichero(char *nombreFich){
-   	FILE * fp;
-    fp  = fopen("./texto.txt","r+");
+   FILE * fp;
+   fp  = fopen("./texto.txt","w+");
 
-    if( fp != NULL) {
-        perror("ERROR de apertura del fichero %s\n"); //sirve para imprimir un mensaje de error descriptivo en la salida estándar de errores (stderr).
-        exit(1);				
-    } else {
-        char buffer[100];
-        printf("Dame un texto a grabar, seguido de Enter: ");
-        fgets( buffer, 100,stdin); //GRABAMOS EL ARCHIVO
+   if( fp == NULL) {
+      perror("ERROR de apertura del fichero\n"); //sirve para imprimir un mensaje de error descriptivo en la salida estándar de errores (stderr).
+      exit(1);				
+   } else {
+      
+      printf("Dame un texto a grabar, seguido de Enter: ");
+      fgets(nombreFich, 100,stdin); //GRABAMOS EL ARCHIVO
+      fputs(nombreFich, fp);
 
-        if( ferror(fp)){
-            printf("ERROR al grabar en el fichero.\n");
-            fclose(fp);
-        }
-
-    }
+      if( ferror(fp)){
+         printf("ERROR al grabar en el fichero.\n");
+        
+      }
+   }
+    fclose(fp);
 }
 
+void MuestraFichero(char *NombreFichero){
 
 
-void muestraFichero(char *nombreFich) {
-   FILE * file;				//declaramos un puntero a FILE pf
-   
-   file = fopen("texto.txt","r");  
-   if( file == NULL) {
-    
-    perror("No se encuentra ese Archivo");	//informamos por pantalla que el fichero no existe
-    exit(1);	//salimos de la función
-   }
-
-   char cadAux[100];			//declaramos una cadena de 100 caracteres para guardar ahi los datos recogido por teclado
-   printf("El contenido del fichero %s es:\n", nombreFich);
-   fgets(cadAux,sizeof(cadAux - 1), stdin);	 // -1 porque no cogemos el \0
-   	
-   while ( !ferror(file) && !feof(file)) {
-    printf(" La cadena es : %s", cadAux);
-    fgets(cadAux,sizeof(cadAux), stdin);
-    fputs(cadAux, file);
-
-   }
- 
-   if( ferror(file)) {
-    perror("ERROR al leer el fichero\n");
-    fclose(file);
-   }			
-   
 }
-
 
 /*
 

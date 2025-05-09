@@ -1,19 +1,18 @@
 #include "misfunciones.h"
 
-	
-int main( int argc, int *argv[]){
+int main( int argc, char *argv[]){
 
-    if( argc != 2) {     
+   if( argc < 2) {     
 
-        printf("ERROR: debes aportar un nombre de fichero.\n"); exit(0); 
-        
-    } else {
-        creaFichero(argv[1]);
-        muestraFichero(argv[1]);
-    }
-
-    return 0;
+      printf("ERROR: debes aportar un nombre de fichero.\n"); 
+      exit(0); 
+      
+   } else {
+      creaFichero(argv[1]);
+   }
+   return 0;
 }
+
 /* 
    //c) Crea una función que muestre el contenido del fichero por pantalla. Si el fichero no existe, emitir mensaje de error
    XXXXXXXXXXXXXXXXXXXXXXX	//llamamos a la función muestraFichero() y le pasamos el nombre del fichero
