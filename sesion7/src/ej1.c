@@ -26,13 +26,30 @@ int main( int argc, char *argv[]){
              fputs(argv[i],pf);
              fprintf(pf,"\n");
         }
-        RecogerDatosFichero( pf, edad, altura);
     }else {
         printf("Error");
     }
     fclose(pf);
 
+    pf = fopen("./miSegundoArchivo.txt", "w+");
+    if (pf != NULL) {
+        printf("Edad y altura del chaval\n");
+        scanf("%d %d", &edad, &altura);
 
+        fprintf(pf, "Los datos introducidos han sido: %d %d\n", edad, altura);
 
+        // Reposiciono el cursor al inicio del archivo para leer
+        fseek(pf, 0, SEEK_SET);//Importantisimo
+
+        printf("\nLeyendo del archivo...\n");
+        char buffer[50];
+        while (fgets(buffer, 50, pf) != NULL) {
+            printf("%s", buffer);
+        }
+
+        fclose(pf);
+    } else {
+        printf("Error");
+    }
     return 0;
 }

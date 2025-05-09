@@ -6,7 +6,7 @@
 #ifndef MISFUNCIONES_H
 #define MISFUNCIONES_
 
-void RecogerDatosFichero ( FILE * pf, int altura, int edad );
+
 
 
 #endif
