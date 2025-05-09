@@ -2,7 +2,7 @@
 
 
 int main( int argc, char *argv[]){
-    int i;
+    int i , edad, altura;
     
     FILE * pf = NULL ;
 
@@ -14,19 +14,25 @@ int main( int argc, char *argv[]){
     } else {
         for ( i = 0; i < argc; i++)
         {
-           printf("Los arguemntos recojidos en lineas de comandos son :%s\n", argv[i]);
+           printf("Los arguemntos recojidos en lineas de comandos son : %s\n", argv[i]);
 
         }
     }
 
     pf = fopen ("./miPrimerFichero.txt","w+"); // Open a TEXT file
     if( pf != NULL){
-        fputs("Holaaa", pf);
-        fprintf(pf,"Que pasa wasaaaa");
+        for ( i = 1; i < argc; i++) {
+             fprintf(pf, "\nlos argumentos de entrada son:\n");
+             fputs(argv[i],pf);
+             fprintf(pf,"\n");
+        }
+        RecogerDatosFichero( pf, edad, altura);
     }else {
         printf("Error");
     }
     fclose(pf);
+
+
 
     return 0;
 }

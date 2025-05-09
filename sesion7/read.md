@@ -15,7 +15,7 @@ void main ()
     fseek (pFile , 0, SEEK_END ); // Moves the file pointer to the end
     size = ftell ( pFile ); // Storage the current position ( END)
     printf ("After moving to the end, the position of the file pointer is %d bytes \n",size );
-    
+      
     rewind ( pFile ); // Rewind the file pointer
     // Allocate memory to read the size of the file + 1 (for \0)
     buff = ( char *) malloc ( size * sizeof ( char ) +1) ;
