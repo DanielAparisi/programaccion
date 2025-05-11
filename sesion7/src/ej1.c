@@ -10,6 +10,8 @@ int main( int argc, char *argv[]){
    } else {
       creaFichero(argv[1]);
       MuestraFichero(argv[1]);
+
+      
       
    }
    return 0;

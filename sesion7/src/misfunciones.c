@@ -41,13 +41,40 @@ void MuestraFichero(char *NombreFichero){
 
    fclose(file);
 
-  
 }
+
+void cambiaLetras(char *NombreFichero, char a, char b){
+
+   FILE * fp;
+   int i;
+   fp = fopen("./text.txt","r");
+
+   if( fp != NULL){
+      char cadAux[1000];
+      while (!ferror(fp) && !feof(fp)) {
+         for( i = 0; i < sizeof(cadAux); i++){
+            if( cadAux[i] == 'a'|| cadAux[i] == 'e'|| cadAux[i] == 'i'|| cadAux[i] == 'o'|| cadAux[i] == 'u' ){
+               cadAux[i] == a;
+               a == b;
+            }
+         }
+      }
+
+   } else {
+
+      printf("Error al abrir el fichero %s", NombreFichero);
+      exit(1);
+   }
+
+
+
+
+
+}	
+
+
+
 /*
-
-
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX	//cabecera de la función cambiaLetras
-//recibe una cadena nombreFich con el nombre del fichero, y las variables "a" y "b" con las letras a buscar y reemplazar
 {
    XXXXXXX				//declaramos el puntero a FILE pf
    XXXXXXXXXXXXXXXXXXXXXXXXXXXXX	//llamamos a fopen para abrir el fichero en modo "r+"
@@ -80,36 +107,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX	//cabecera de la función cambiaLetras
    }
    XXXXXXXXXX				//cerramos el fichero
 }
+
+
 */
-
-
-
-
-/*
-SOLUCION LEYENDO LETRA A LETRA Y USANDO fseek:
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX	//cabecera de la función cambiaLetras
-//recibe una cadena nombreFich con el nombre del fichero, y las variables "a" y "b" con las letras a buscar
-{
-   XXXXXX			//declaramos el puntero a FILE pf
-   XXXXXXXXXXXXXXXXXXXXXXXXXXX	//llamamos a fopen para abrir el fichero en modo "r+"
-   XXXXXXXXXXXXXX			//si se ha producido un error de apertura
-   {  printf("ERROR: el fichero %s no existe.\n", nombreFich); return;  }	//mensaje de error y salimos de la función
-   XXXXXXXXX			//declaramos variable char para leer una letra del fichero
-   XXXXXXXXXXXXXXX		//leemos la primera letra del fichero (fgetc)
-   XXXXXXXXXXXXXXXXXXXXXXXXXXX	//mientras no sea el fin del fichero y no se produzca un error de lectura
-   {
-      XXXXXXXXXXXXXXXXXXX	//si la letra es igual a la de la variable "a"
-      {  XXXXXXXXXXXXXXXXXXXXX	//retrocedemos una posición en el fichero (fseek) 
-         XXXXXXXXXXXX		//grabamos la variable "b" (fputc)
-      }
-      XXXXXXXXXXXXXXXXXXXX	//leemos la siguiente letra del fichero (fgetc)
-   }
-   XXXXXXXXXXXXXX		//si se ha producido error al acceder al fichero
-      printf("ERROR de acceso al fichero %s.\n", nombreFich);	//imprimimos mensaje de error
-   XXXX				//si no
-      printf("El fichero %s ha sido modificado\n", nombreFich);
-   XXXXXXXX			//cerramos el fichero
-}
-*/
-
 
