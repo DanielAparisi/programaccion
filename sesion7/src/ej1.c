@@ -1,7 +1,6 @@
 #include "misfunciones.h"
 
-int main(int argc, char *argv[])	//cabecera de main 
-{
+int main(int argc, char *argv[]) {
    if (argc!=2)
    {  printf("ERROR: debes aportar un nombre de fichero.\n"); exit(0);  }
 

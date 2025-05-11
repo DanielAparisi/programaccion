@@ -52,24 +52,15 @@ void cambiaLetras(char *NombreFichero, char a, char b) {
       printf("Error al abrir el fichero %s\n", NombreFichero);
       exit(1);
    }
+   fseek(fp, 0, SEEK_SET); // Colocamos el puntero al inicio del fichero
+   long LongitudDelFichero = ftell(fp); // Obtenemos la longitud del fichero
+   rewind(fp); // Colocamos el puntero al inicio del fichero
 
-   char cadena[100];
-   char cadenaTotal[1000] = "";
-
-   // Lectura del fichero correctamente
-   while (fgets(cadena, sizeof(cadena), fp) != NULL) {
-      strcat(cadenaTotal, cadena);
+   for( int i = 0; i < LongitudDelFichero; i++){
+      if( NombreFichero[i] == a){
+         a = b;
+      }
    }
-
-   // Reemplazo de caracteres
-   for (int i = 0; cadenaTotal[i] != '\0'; i++) {
-      if (cadenaTotal[i] == a)
-         cadenaTotal[i] = b;
-   }
-
-   // Reescritura del fichero
-   rewind(fp);
-   fputs(cadenaTotal, fp);
 
    if (ferror(fp))
       printf("ERROR al grabar el fichero %s.\n", NombreFichero);
@@ -77,4 +68,6 @@ void cambiaLetras(char *NombreFichero, char a, char b) {
       printf("El fichero ha sido modificado correctamente.\n");
 
    fclose(fp);
+
+   
 }
