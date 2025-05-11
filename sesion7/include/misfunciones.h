@@ -7,8 +7,8 @@
 
     
  //declaraciones prototipo de mis funciones:
-  void creaFichero(char *nombreFich);
-  void MuestraFichero(char *NombreFichero );
-  void cambiaLetras(char *NombreFichero, char a, char b);
+void crearFichero(char *nombreFich);
+void muestraFichero(char *nombreFich);
+void cambiarLetras(char *nombreFich, char a, char b);
 
 #endif
