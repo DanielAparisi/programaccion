@@ -25,7 +25,7 @@ void MuestraFichero(char *NombreFichero){
 
    FILE * file;
    
-   file = fopen("./texto.txt","a");
+   file = fopen("./texto.txt","r");
 
    if( file == NULL){
       perror("Error Al intentar abrir el fichero");
@@ -34,22 +34,15 @@ void MuestraFichero(char *NombreFichero){
       printf("El nombre del archivo es %s", NombreFichero);
       char cadAux[100];
 
-      if(fgets(cadAux, sizeof(cadAux),file) != NULL ) {
-         while (!ferror(file) && !feof(file)) {
-            fgets(cadAux, sizeof(cadAux),file) ;
-            printf("%s", cadAux);
-         }    
+      if(fgets(cadAux, sizeof(cadAux),file) != NULL ) {  
+         printf("%s", cadAux);  
       }
    }
 
-   
+   fclose(file);
+
+  
 }
-
-
-
-
-
-
 /*
 
 
