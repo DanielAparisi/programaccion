@@ -22,8 +22,8 @@ void muestraFichero(char *nombreFich) // cabecera de la función muestraFichero,
     pf = fopen(nombreFich, "r+"); // llamamos a fopen para abrir el fichero en modo "read" (r)
     if (pf == NULL)               // si se ha producido un error de apertura de fichero
     {
-        printf("ERROR: el fichero %s no existe.\n", nombreFich); // informamos por pantalla que el fichero no existe
-        return;                                                  // salimos de la función
+      printf("ERROR: el fichero %s no existe.\n", nombreFich); // informamos por pantalla que el fichero no existe
+      return;                                                  // salimos de la función
     }
     char cadena[100]; // declaramos una cadena de 100 caracteres
     printf("El contenido del fichero %s es:\n", nombreFich);
@@ -38,56 +38,45 @@ void muestraFichero(char *nombreFich) // cabecera de la función muestraFichero,
     fclose(pf);                                               // cerramos el fichero
 }
 
-void cambiarLetras(char *nombreFich, char a, char b)
-{
-    FILE *pf = fopen(nombreFich, "r"); // Abrimos el archivo en modo lectura
-    if (pf == NULL)
-    {
-        printf("ERROR: el fichero %s no existe.\n", nombreFich);
-        return;
-    }
+void cambiarLetras(char *nombreFich, char a, char b) {
+   FILE *pf = fopen(nombreFich, "r+"); // Abrimos el archivo en modo lectura y escritura
+   if (pf == NULL) {
+      printf("ERROR: el fichero %s no existe.\n", nombreFich);
+      return;
+   }
 
-    // Determinamos el tamaño del archivo
-    fseek(pf, 0, SEEK_END);
-    long fileSize = ftell(pf);
-    rewind(pf);
+   // Declaramos un array de caracteres de tamaño fijo
+   char cadena[100];
 
-    // Reservamos memoria dinámica para leer todo el archivo
-    char *cadenaTotal = (char *)malloc(fileSize + 1);
-    if (cadenaTotal == NULL)
-    {
-        printf("ERROR: No se pudo asignar memoria.\n");
-        fclose(pf);
-        return;
-    }
+   // Leemos el contenido del archivo en bloques de hasta 100 caracteres
+   int bytesLeidos = fread(cadena, 1, sizeof(cadena) - 1, pf);
+   if (bytesLeidos <= 0) {
+      printf("ERROR: No se pudo leer el contenido del fichero o está vacío.\n");
+      fclose(pf);
+      return;
+   }
 
-    // Leemos todo el contenido del archivo
-    fread(cadenaTotal, 1, fileSize, pf);
-    cadenaTotal[fileSize] = '\0'; // Aseguramos el terminador nulo
-    fclose(pf);
+   // Aseguramos el terminador nulo
+   cadena[bytesLeidos] = '\0';
 
-    // Reemplazamos los caracteres
-    for (int i = 0; cadenaTotal[i] != '\0'; i++)
-    {
-        if (cadenaTotal[i] == a)
-            cadenaTotal[i] = b;
-    }
+   // Reemplazamos los caracteres en el array
+   for (int i = 0; i < bytesLeidos; i++) {
+      if (cadena[i] == a) {
+         cadena[i] = b;
+      }
+   }
 
-    // Reabrimos el archivo en modo escritura para truncarlo y escribir el nuevo contenido
-    pf = fopen(nombreFich, "w");
-    if (pf == NULL)
-    {
-        printf("ERROR: No se pudo abrir el fichero para escritura.\n");
-        free(cadenaTotal);
-        return;
-    }
+   // Volvemos al inicio del archivo para sobrescribir el contenido
+   rewind(pf);
 
-    fputs(cadenaTotal, pf); // Escribimos el contenido modificado
-    if (ferror(pf))
-        printf("ERROR al grabar el fichero %s.\n", nombreFich);
-    else
-        printf("El fichero ha sido modificado\n");
+   // Escribimos el contenido modificado en el archivo
+   fwrite(cadena, 1, bytesLeidos, pf);
 
-    fclose(pf);
-    free(cadenaTotal); // Liberamos la memoria dinámica
+   if (ferror(pf)) {
+      printf("ERROR al grabar el fichero %s.\n", nombreFich);
+   } else {
+      printf("El fichero ha sido modificado correctamente.\n");
+   }
+
+   fclose(pf); // Cerramos el archivo
 }

@@ -16,8 +16,11 @@ int main(int argc, char *argv[]) // cabecera de main
    printf("Dame la letra a buscar: ");
    a = getchar(); // leemos en a la letra a buscar
    getchar();     // borramos el \n del buffer del teclado
+
    printf("Dame la letra de reemplazo: ");
    b = getchar(); // leemos en b la letra de reemplazo
+
+
    cambiarLetras(argv[1], a, b); // llamamos a la funcion cambiaLetras() y le pasamos el nombre del fichero y las dos letras a y b
    muestraFichero(argv[1]);      // llamamos a la función muestraFichero para ver el nuevo contenido del mismo
 }
