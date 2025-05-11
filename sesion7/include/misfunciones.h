@@ -7,6 +7,7 @@
     
  //declaraciones prototipo de mis funciones:
   void creaFichero(char *nombreFich);
+  void MuestraFichero(char *NombreFichero );
 
 
 

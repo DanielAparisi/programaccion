@@ -2,7 +2,7 @@
 
 void  creaFichero(char *nombreFich){
    FILE * fp;
-   fp  = fopen("./texto.txt","w+");
+   fp  = fopen("./texto.txt","a");
 
    if( fp == NULL) {
       perror("ERROR de apertura del fichero\n"); //sirve para imprimir un mensaje de error descriptivo en la salida estándar de errores (stderr).
@@ -23,12 +23,36 @@ void  creaFichero(char *nombreFich){
 
 void MuestraFichero(char *NombreFichero){
 
+   FILE * file;
+   
+   file = fopen("./texto.txt","a");
 
+   if( file == NULL){
+      perror("Error Al intentar abrir el fichero");
+      exit(1);
+   } else {
+      printf("El nombre del archivo es %s", NombreFichero);
+      char cadAux[100];
+
+      if(fgets(cadAux, sizeof(cadAux),file) != NULL ) {
+         while (!ferror(file) && !feof(file)) {
+            fgets(cadAux, sizeof(cadAux),file) ;
+            printf("%s", cadAux);
+         }    
+      }
+   }
+
+   
 }
+
+
+
+
+
 
 /*
 
-//SOLUCION CARGANDO TODO EL TEXTO EN MEMORIA:
+
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX	//cabecera de la función cambiaLetras
 //recibe una cadena nombreFich con el nombre del fichero, y las variables "a" y "b" con las letras a buscar y reemplazar
 {
