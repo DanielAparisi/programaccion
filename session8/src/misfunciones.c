@@ -33,9 +33,13 @@ int leeFichero1(FILE *file, pelis ArrayAlmacenado[], int MAXNUM) {
     return numregs; // Retornar el número de registros del fichero
 }
 
-/*
-int leeFichero2(XXXXXXXXXXXXX)	//recibe el puntero a FILE y el puntero arrayDin pasado por referencia (con puntero pp doble **)
-{
+
+int leeFichero2(FILE *file, pelis **arrayAlmacenado){
+    //X Para reservar la memoria podemos adoptar varias estrategias:
+    //X Leemos todo el fichero y sabemos el tamaño. Hacemos una sola
+    //reserva de memoria, pero leemos el fichero 2 veces
+
+
    int i=0;
    char cabecera[200];	//cadena para leer la linea de cabecera del fichero y descartarla
    int numregs;		//indicara el numero de registros que tiene el fichero
@@ -44,40 +48,45 @@ int leeFichero2(XXXXXXXXXXXXX)	//recibe el puntero a FILE y el puntero arrayDin 
 
    //PRIMERO HAY QUE AVERIGUAR CUANTOS REGISTROS TIENE EL FICHERO:
    printf("Leyendo registros del fichero...    ");
-   XXXXXXXXX		//llevamos el apuntador L/E al principio del fichero
-   XXXXXXXXXXXXXXXX	//leer primer registro del fichero y descartarlo (fgets)
+   rewind(file)	;	//lValidamos que el estamos al principio del archivo
+    fgets(cabecera, 200, file);	//leer primer registro del fichero y descartarlo (fgets)
 
    //leer siguiente registro del fichero sobre el registro auxiliar:
-   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-   while (XXXXXXXXXXXXXXX)	//mientras no lleguemos al final del fichero y no haya error de lectura
-   {  i++;
-      //leer siguiente registro del fichero sobre el registro auxiliar:
-      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-   }
+   fscanf(file, "%d %d %d %d %s", &regAux.ranking, &regAux.votes, &regAux.year, &regAux.metascore, regAux.name);
+
+    while (!feof(file) && !ferror(file)) {
+        pelis regAux;
+        if (fscanf(file, "%d %d %d %d %s", &regAux.ranking, &regAux.votes, &regAux.year, &regAux.metascore, regAux.name) == 5) {
+            i++;
+        }
+    }
    numregs = i;		//el ultimo valor de i indica el numero de registros del fichero
    printf("Tenemos %d registros\n\n", numregs);		//deben salir 250 registros
 
    //AHORA CREAMOS EL ARRAY DINAMICO CON TANTOS ELEMENTOS COMO NUMERO DE REGISTROS:
-   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX	//llamar a malloc para crear el array dinamico con el puntero array
-   if (XXXXXXXXXXX)	//si falla malloc
-   {  printf("ERROR: falta memoria\n"); return 0;  }
+   *arrayAlmacenado = (pelis *)malloc(numregs * sizeof(pelis));//llamar a malloc para crear el array dinamico con el puntero array
+    if (*arrayAlmacenado == NULL) {
+        printf("ERROR: No se pudo asignar memoria dinámica.\n");
+        return 0;
+    }
 
    //AHORA CARGAMOS EL ARRAY CON LOS DATOS LEIDOS DEL FICHERO:
    i = 0;
-   XXXXXXXXXXX		//llevar el apuntador L/E al principio del fichero
-   XXXXXXXXXXXXXXX	//leer primer registro del fichero y descartarlo (fgets)
+   rewind(file);		//llevar el apuntador L/E al principio del fichero
+   fgets(cabecera,200,file );	//leer primer registro del fichero y descartarlo (fgets)
 
    //leer siguiente registro del fichero sobre el elemento array[0]:
-   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-   XXXXXXXXXXXXXXXXXXXXXXXX	//mientras no se llegue al final del fichero y no haya error de lectura
-   {  i++;
+    fscanf(file, "%d %d %d %d %s",array[i].year,array[i].votes,array[i].ranking,array[i].metascore,array[i].name);
+   while(!ferror(file) && !feof(file)){
+      i++;
       //leer siguiente registro del fichero sobre el elemento array[i]:
-      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      fscanf(file, "%d %d %d %d %s", &array[i].ranking, &array[i].year, &array[i].votes, &array[i].metascore, array[i].name);
    }
-   XXXXXXXXXXXXXXXX	//desactivar el indicador feof() (clearerr)
-   XXXXXXXXXXXX		//copiar el puntero array en el puntero arrayDin de main (mediante el puntero pp)
-   return XXXXXXXXX	//retornar el numero de registros del fichero
+   clearerr(file);	//desactivar el indicador feof() (clearerr)
+   *arrayAlmacenado = array;	//copiar el puntero array en el puntero arrayDin de main (mediante el puntero pp)
+   return numregs;	//retornar el numero de registros del fichero
 }
+/*
 */
 
 

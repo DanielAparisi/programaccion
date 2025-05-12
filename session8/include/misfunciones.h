@@ -15,8 +15,8 @@ typedef struct{
 } pelis;		//"pelis" es el nombre del TIPO de dato struct
 
     //declaraciones prototipo de mis funciones:
-  int leeFichero1(FILE *pf, pelis *array, int num);
-    //int leeFichero2(FILE *pf, pelis **pp);
+   // int leeFichero1(FILE *pf, pelis *array, int num);
+    int leeFichero2(FILE *pf, pelis **pp);
   //void masModerna(pelis *array, int numElems);
   //void mayorVotos(pelis *array, int numElems);
 
