@@ -18,12 +18,18 @@ int main(){
     }
     getchar();//Nos aseguramos de limpiar el buffer.
     //Leemos los alumnos y los almacenamos por teclado.
-    LeeRegistro(&talumno, nAlumnos);
 
-
+    nAlumnos = LeeAlumnos(talumno, nAlumnos);
+ 
+	// Visualizacion del array dinamico
+	MuestraAlumnos(&talumno, nAlumnos);
 
     //Declaramos el Array Dinamico.
-   
+   for ( i = 0; i < nAlumnos; i++){
+    MuestraAlumnos(&talumno[i], nAlumnos);
 
+    free(talumno);
+   }
+   
     return 0;
 }

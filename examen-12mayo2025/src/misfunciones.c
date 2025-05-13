@@ -21,6 +21,6 @@ void LeeRegsitro( Alumno *talumno, int numElements ){
 	while(getchar() != '\n') { } // vacio la consola por si habia elementos guardados 
 
 }
-void MuestraAlumnos(Alumno talumno) {
-	printf("Nombre: %s, Matricula: %d,  Curso Actual: %s, Numero de creditos : %d, Codigo del curso : %d\n", talumno.nombreCompleto, talumno.matricula, talumno.InfoCursoActual.nombreDelCurso, talumno.InfoCursoActual.creditos, talumno.InfoCursoActual.codigoCurso);
+void MuestraAlumnos(Alumno *talumno, int numAlumnos) {
+	printf("Nombre: %s, Matricula: %d,  Curso Actual: %s, Numero de creditos : %d, Codigo del curso : %d\n", talumno->nombreCompleto, talumno->matricula, talumno->InfoCursoActual.nombreDelCurso, talumno->InfoCursoActual.creditos, talumno->InfoCursoActual.codigoCurso);
 }

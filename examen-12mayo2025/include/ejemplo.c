@@ -21,7 +21,7 @@ int main(void) {
 	nalumnos = LeeAlumnos(alumnos, nalumnos);
  
 	// Visualizacion del array dinamico
-	MuestraAlumnos(alumnos, nalumnos);
+	MuestraAlumnos(&alumnos, nalumnos);
 
 	// Liberacion de memoria 
 	// free(palumno);
