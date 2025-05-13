@@ -1,18 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string>
+#include <string.h>
 
 #ifndef EXAMEN
 #define EXAMEN
-
-typedef struct {
-
-    char nombreCompleto [50];
-    int matricula;
-    CursoActual InfoCursoActual;
-
-} Registro;
-
 
 typedef struct{
 
@@ -22,5 +13,18 @@ typedef struct{
 
 } CursoActual;
 
+
+typedef struct {
+
+    char nombreCompleto [50];
+    int matricula;
+    CursoActual InfoCursoActual;
+
+} Alumno;
+
+
+
+void LeeRegistro( Alumno *alumno, int numOfAlumnos );
+void MuestraAlumnos(Alumno talumno) 
 
 #endif 
