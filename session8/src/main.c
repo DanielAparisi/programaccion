@@ -4,7 +4,7 @@ int main()	 {
    setlocale(LC_ALL, "es_ES.UTF-8"); // Configurar la localización para español
    system("chcp 65001"); // Configurar la consola para UTF-8 
    FILE * pf;	//declaramos un puntero a FILE pf
-   pf = fopen("imdbMOVIES.txt","w+");	//llamamos a fopen para abrir el fichero imdbMOVIES.txt en modo "read" (r)
+   pf = fopen("imdbMOVIES.txt","r");	//llamamos a fopen para abrir el fichero imdbMOVIES.txt en modo "read" (r)
 
 
    if (pf != NULL){
