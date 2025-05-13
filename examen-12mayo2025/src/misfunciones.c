@@ -1,26 +1,48 @@
 #include "misfunciones.h"
 
-void LeeRegsitro( Alumno *talumno, int numElements ){
 
-    printf("Introduce tu nombre completo: \n");
-	gets(&talumno->nombreCompleto);
+void LeeAlumnos( Alumno *talumno, int numElements ){
+    int i;
+   
+    for ( i = 0; i < numElements; i++) {
+        while(getchar() != '\n'); // Limpiar el buffer de entrada
+        printf("Introduce tu nombre completo: \n");
+        fgets(talumno->nombreCompleto, sizeof(talumno->nombreCompleto), stdin);
+        talumno->nombreCompleto[strcspn(talumno->nombreCompleto, "\n")] = '\0'; // Eliminar el salto de línea
 
-    printf("Introduce la matricula: \n");
-	scanf("%d",&talumno->matricula);
+        
+        printf("Introduce la matricula: \n");
+        scanf("%d", &talumno->matricula);
+        while(getchar() != '\n'); // Limpiar el buffer de entrada
+       
+        
+        printf("Introduce el curso actual en el que te encuentras estudiando\n");
+        fgets(talumno->InfoCursoActual.nombreDelCurso, sizeof(talumno->InfoCursoActual.nombreDelCurso), stdin);
+        talumno->InfoCursoActual.nombreDelCurso[strcspn(talumno->InfoCursoActual.nombreDelCurso, "\n")] = '\0'; // Eliminar el salto de línea
 
-    printf("Introduce el curso actual en el que te encuentras estudiando\n");
-    gets(&talumno->InfoCursoActual.nombreDelCurso);
+        
+        printf("Introduce el codigo de tu curso actual\n");
+        scanf("%d", &talumno->InfoCursoActual.codigoCurso);
+        while(getchar() != '\n'); // Limpiar el buffer de entrada
 
-
-	printf("Introduce el codigo de tu curso actual\n");
-	scanf("%d",&talumno->InfoCursoActual.codigoCurso);
-
-    printf("Intoruce los creditos totales que ofrece ese curso\n");
-    scanf("%d",&talumno->InfoCursoActual.creditos);
-
-	while(getchar() != '\n') { } // vacio la consola por si habia elementos guardados 
-
+       
+        printf("Introduce los creditos totales que ofrece ese curso\n");
+        scanf("%d", &talumno->InfoCursoActual.creditos);
+        while(getchar() != '\n'); // Limpiar el buffer de entrada
+       
+    }     
 }
 void MuestraAlumnos(Alumno *talumno, int numAlumnos) {
-	printf("Nombre: %s, Matricula: %d,  Curso Actual: %s, Numero de creditos : %d, Codigo del curso : %d\n", talumno->nombreCompleto, talumno->matricula, talumno->InfoCursoActual.nombreDelCurso, talumno->InfoCursoActual.creditos, talumno->InfoCursoActual.codigoCurso);
+
+    int i;
+    for ( i = 0; i < numAlumnos; i++) {
+       for (i = 0; i < numAlumnos; i++) {
+            printf("\tNombre: %s\n \tMatricula: %d\n  \tCurso Actual: %s\n \tNumero de creditos : %d\n \tCodigo del curso : %d\n", 
+                talumno[i].nombreCompleto, 
+                talumno[i].matricula, 
+                talumno[i].InfoCursoActual.nombreDelCurso, 
+                talumno[i].InfoCursoActual.creditos, 
+                talumno[i].InfoCursoActual.codigoCurso);
+        }
+    }  
 }

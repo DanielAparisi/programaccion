@@ -22,7 +22,7 @@ typedef struct {
 
 } Alumno;
 
-void LeeRegistro( Alumno *alumno, int numOfAlumnos );
+void LeeAlumnos( Alumno *alumno, int numOfAlumnos );
 void MuestraAlumnos(Alumno *talumno, int numAlumnos);
 
 #endif 
