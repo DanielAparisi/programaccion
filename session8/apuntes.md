@@ -319,6 +319,9 @@ void mayorVotos(XXXXXXXXXXXXXXXXX)	//recibe el array de estructuras
 
 
 
+
+
+
 //===============================================================================
 //FICHERO funciones8.h  (a guardar en la carpeta sesion8/include/):
 

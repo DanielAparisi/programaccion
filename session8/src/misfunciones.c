@@ -44,6 +44,10 @@ int leeFichero2(FILE *pf, pelis **pp)	//recibe el puntero a FILE y el puntero ar
 
    //PRIMERO HAY QUE AVERIGUAR CUANTOS REGISTROS TIENE EL FICHERO:
    printf("Leyendo registros del fichero...    ");
+   if(pf == NULL){
+    printf("EEROOR AL ABRIR EL ARCHIVO");   
+
+   }
    rewind(pf);		//llevamos el apuntador L/E al principio del fichero
    fgets(cabecera, 200, pf);	//leer primer registro del fichero y descartarlo
 

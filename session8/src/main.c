@@ -4,7 +4,7 @@ int main()	 {
    setlocale(LC_ALL, "es_ES.UTF-8"); // Configurar la localización para español
    system("chcp 65001"); // Configurar la consola para UTF-8 
    FILE * pf;	//declaramos un puntero a FILE pf
-   pf = fopen("imdbMOVIES.txt","r");	//llamamos a fopen para abrir el fichero imdbMOVIES.txt en modo "read" (r)
+   pf = fopen("imdbMOVIES.txt","w+");	//llamamos a fopen para abrir el fichero imdbMOVIES.txt en modo "read" (r)
 
 
    if (pf != NULL){
@@ -18,7 +18,7 @@ int main()	 {
    int numRegs;		//indicara el numero de registros del fichero (= numero de elementos de los arrays)
 
    //b) Crea una funcion que lea el fichero y guarde toda la informacion en memoria estatica (en un array estatico):
-
+   numRegs = leeFichero1(pf, array, 300); // Call the function and store the result in numRegs
    //numRegs = leeFichero1(pf, array,300);	//le pasamos el puntero a FILE y el array estatico (nombre y tamaño)
    //devuelve el numero de registros que tiene el fichero (deben ser 250)
 
