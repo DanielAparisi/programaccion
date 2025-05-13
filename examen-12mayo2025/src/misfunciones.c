@@ -44,5 +44,6 @@ void MuestraAlumnos(Alumno *talumno, int numAlumnos) {
                 talumno[i].InfoCursoActual.creditos, 
                 talumno[i].InfoCursoActual.codigoCurso);
         }
-    }  
+    }
+    
 }

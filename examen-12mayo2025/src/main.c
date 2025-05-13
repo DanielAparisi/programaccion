@@ -25,7 +25,11 @@ int main(){
     LeeAlumnos(talumno, nAlumnos);
  
 	// Visualizacion del array dinamico
-	MuestraAlumnos(talumno, nAlumnos);
+	MuestraAlumnos(file,talumno, nAlumnos);
+
+     if( file != NULL){
+        printf("ERROR, no se puedo abrir el fichero correctamente");
+    }
 
 
     return 0;
