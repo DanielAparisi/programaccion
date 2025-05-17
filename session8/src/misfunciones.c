@@ -2,36 +2,39 @@
 	//incluimos nuestro fichero de cabecera, que contiene las declaraciones de nuestras funciones
 
 int leeFichero1(FILE *file, pelis ArrayAlmacenado[], int MAXNUM) {
-    int i = 0;
-    int numregs; // Indicará el número de registros que tiene el fichero
-    char cabecera[200]; // Cadena para leer la línea de cabecera del fichero y descartarla
 
-    printf("Leyendo registros del fichero...    ");
-    rewind(file); // Nos aseguramos de que el puntero de lectura/escritura del fichero está al principio.
-    fgets(cabecera, 200, file); // Leer y descartar la línea de cabecera
+   int i = 0;
+   int numregs; // Indicará el número de registros que tiene el fichero
+   char cabecera[200]; // Cadena para leer la línea de cabecera del fichero y descartarla
 
-    // Leer el siguiente registro del fichero sobre el elemento array[0]:
-    fscanf(file, "%d %d %d %d %s", &ArrayAlmacenado[i].ranking, &ArrayAlmacenado[i].votes, 
-           &ArrayAlmacenado[i].year, &ArrayAlmacenado[i].metascore, ArrayAlmacenado[i].name);
+   printf("Leyendo registros del fichero...    ");
+   rewind(file); // Nos aseguramos de que el puntero de lectura/escritura del fichero está al principio.
+   fgets(cabecera, 200, file); // Leer y descartar la línea de cabecera
 
-    while (!ferror(file) && !feof(file) && i < MAXNUM) { // Mientras no haya errores y no se alcance el final del fichero
-        i++;
-        // Leer el siguiente registro del fichero sobre el elemento array[i]:
-        fscanf(file, "%d %d %d %d %s", &ArrayAlmacenado[i].ranking, &ArrayAlmacenado[i].votes, 
-               &ArrayAlmacenado[i].year, &ArrayAlmacenado[i].metascore, ArrayAlmacenado[i].name);
-    }
+   // Leer el siguiente registro del fichero sobre el elemento array[0]:
+   fscanf(file, "%d %d %d %d %s", &ArrayAlmacenado[i].ranking, &ArrayAlmacenado[i].votes, 
+         &ArrayAlmacenado[i].year, &ArrayAlmacenado[i].metascore, ArrayAlmacenado[i].name);
 
-    numregs = i; // El último valor de i indica el número de registros del fichero
-    printf("Tenemos %d registros\n\n", numregs); // Deben salir 250 registros
+   while (!ferror(file) && !feof(file) && i < MAXNUM) { // Mientras no haya errores y no se alcance el final del fichero
+      i++;
+      // Leer el siguiente registro del fichero sobre el elemento array[i]:
+      fscanf(file, "%d %d %d %d %s", &ArrayAlmacenado[i].ranking, &ArrayAlmacenado[i].votes, 
+            &ArrayAlmacenado[i].year, &ArrayAlmacenado[i].metascore, ArrayAlmacenado[i].name);
+   }
+   
 
-    for (i = 0; i < numregs; i++) {
-        printf("%d: Nombre: %s\tAño: %d\tRanking: %d\tVotos: %d\tMetascore: %d\n", 
-               i + 1, ArrayAlmacenado[i].name, ArrayAlmacenado[i].year, 
-               ArrayAlmacenado[i].ranking, ArrayAlmacenado[i].votes, ArrayAlmacenado[i].metascore);
-    }
+   numregs = i; // El último valor de i indica el número de registros del fichero
+   printf("Tenemos %d registros\n\n", numregs); // Deben salir 250 registros
+
+   for (i = 0; i < numregs; i++) {
+      printf("%d: Nombre: %s\tAño: %d\tRanking: %d\tVotos: %d\tMetascore: %d\n", 
+            i + 1, ArrayAlmacenado[i].name, ArrayAlmacenado[i].year, 
+            ArrayAlmacenado[i].ranking, ArrayAlmacenado[i].votes, ArrayAlmacenado[i].metascore);
+   }
 
     return numregs; // Retornar el número de registros del fichero
 }
+
 
 
 int leeFichero2(FILE *pf, pelis **pp)	//recibe el puntero a FILE y el puntero arrayDin pasado por referencia

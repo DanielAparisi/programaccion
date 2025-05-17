@@ -19,6 +19,7 @@ int main(){
         printf("ERROR, no fue posible conseguir memoria dinamica");
         exit(1);
     }
+
     getchar();//Nos aseguramos de limpiar el buffer.
     //Leemos los alumnos y los almacenamos por teclado.
 
@@ -27,10 +28,12 @@ int main(){
 	// Visualizacion del array dinamico
 	MuestraAlumnos(file,talumno, nAlumnos);
 
-     if( file != NULL){
+    if( file != NULL){
         printf("ERROR, no se puedo abrir el fichero correctamente");
     }
-
-
+    while (!ferror(file) && !feof(file)) {
+        
+    }
+    
     return 0;
 }

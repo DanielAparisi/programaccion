@@ -7,18 +7,19 @@
 
 typedef struct{
 
-    char nombreDelCurso[40];
-    char codigoCurso[40];
-    int creditos;
+    char nombreDelCurso[70];//[noombre y primer apellido]
+    int codigoCurso; //[0,25]
+    int creditos; //[0,60]
 
 } CursoActual;
 
 
 typedef struct {
 
-    char nombreCompleto [50];
-    int matricula;
+    char nombreCompleto [50]; //nombre y primerApellido
+    int matricula;//3 numeros MAX : ej: 387
     CursoActual InfoCursoActual;
+    
 
 } Alumno;
 
