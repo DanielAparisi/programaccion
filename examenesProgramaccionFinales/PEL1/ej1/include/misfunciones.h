@@ -10,7 +10,7 @@
 
 typedef struct {
 
-    long IdCurso;
+    int IdCurso;
     char nombreCurso[40];
     int creditos;
 
@@ -18,7 +18,7 @@ typedef struct {
 
 typedef struct {
     
-    long IdMatricula;
+    int IdMatricula;
     char nombre[50];
     tRegistroCurso curso;
 
