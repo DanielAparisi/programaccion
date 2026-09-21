@@ -1,6 +1,8 @@
-// FUNCIONES FPUTS Y FGETS
+# Funciones `fputs` y `fgets`
 
-// Programa para leer desde teclado sucesivas cadenas de caracteres y grabarlas en un fichero
+Programa para leer desde teclado sucesivas cadenas de caracteres y grabarlas en un fichero.
+
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -36,4 +38,4 @@ int main()
 
   fclose(pf);
 }
-
+```

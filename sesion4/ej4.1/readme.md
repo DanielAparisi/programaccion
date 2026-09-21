@@ -1,16 +1,17 @@
-//PRACTICA S04
-//============
+# PRACTICA S04 — Ejercicio 1º
 
-//EJERCICIO 1º:
-//ATENCION: realizar primero el ejercicio en un único fichero fuente (ej4.1.c) que contenga a main() y a las funciones de usuario.
-//          Luego, una vez compilado y funcionando bien, dividirlo en 3 ficheros fuente:
-//          * ej4.1.c:  contendrá sólo a main()
-//          * misfunciones.c:  contendrá las funciones de usuario
-//          * misfunciones.h:  contendrá las declaraciones prototipo de las funciones, con compilación condicional
-//          Y volver a recompilarlo.
+> **ATENCION:** realizar primero el ejercicio en un único fichero fuente (`ej4.1.c`) que contenga a `main()` y a las funciones de usuario.
+> Luego, una vez compilado y funcionando bien, dividirlo en 3 ficheros fuente:
+>
+> - `ej4.1.c`: contendrá sólo a `main()`
+> - `misfunciones.c`: contendrá las funciones de usuario
+> - `misfunciones.h`: contendrá las declaraciones prototipo de las funciones, con compilación condicional
+>
+> Y volver a recompilarlo.
 
-//FICHERO ej4.1.c:
+## Fichero `ej4.1.c`
 
+```c
 XXXXXXXXXXXXXXXXXXX                //stdio.h
 XXXX calcula_maximo_y_minimo(XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX);    //prototipos de funciones
 XXXX calcula_media_y_varianza(XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX);
@@ -32,8 +33,11 @@ XXXXXXXXXXX                        //cabecera de main
   printf(XXXXXXXXXXXX, XXXXX);			//imprimir la media, deberia ser 10.12
   printf(XXXXXXXXXXXX, XXXXXXXX);		//imprimir la varianza, deberia ser 41.3356
 }
+```
 
-//FUNCIONES:
+## Funciones
+
+```c
 void calcula_maximo_y_minimo(float array[], int tam, float *max, float *min)
 //recibe el array y las variables maximo y minimo por referencia
 {
@@ -68,6 +72,4 @@ XXXX calcula_media_y_varianza(XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX)
     }
     XXXXXXXXXXXXXXXX			//guardar en varianza la suma dividido por el numero de elementos del array
 }
-
-
-
+```

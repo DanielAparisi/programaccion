@@ -1,3 +1,6 @@
+# Función `muestraFichero`
+
+```c
 void muestraFichero(char *nombreFich) //cabecera de la función muestraFichero, recibe una cadena con el nombre del fichero
 {
     FILE *pf; //declaramos un puntero a FILE pf
@@ -18,3 +21,4 @@ void muestraFichero(char *nombreFich) //cabecera de la función muestraFichero, 
     printf("ERROR al leer el fichero %s.\n", nombreFich); //imprimimos mensaje de error en pantalla
     fclose(pf); //cerramos el fichero
 }
+```

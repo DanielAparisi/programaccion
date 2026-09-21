@@ -1,3 +1,8 @@
+# Sesión 8 — Ficheros binarios
+
+## Ejemplo: escritura y lectura de un fichero binario
+
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -39,30 +44,36 @@ int main() {
 
     return 0;
 }
+```
 
-Resumen: Cómo trabajar con ficheros binarios
+## Resumen: Cómo trabajar con ficheros binarios
+
 Trabajar con ficheros binarios implica leer o escribir datos en un formato no textual, como imágenes, archivos ejecutables o datos serializados. A continuación, se describen los pasos básicos:
 
+**Escritura:**
 
-Escritura:
+- Se abre el fichero en modo binario (`"wb"`).
+- Se escribe un array de enteros en el fichero usando `fwrite`.
 
-Se abre el fichero en modo binario ("wb").
-Se escribe un array de enteros en el fichero usando fwrite.
-Lectura:
+**Lectura:**
 
-Se abre el fichero en modo binario ("rb").
-Se leen los datos del fichero en un buffer usando fread.
-Manejo de errores:
+- Se abre el fichero en modo binario (`"rb"`).
+- Se leen los datos del fichero en un buffer usando `fread`.
 
-Se verifica si el fichero se abre correctamente.
-Se comprueba si la cantidad de datos leídos/escritos coincide con lo esperado.
-Cierre del fichero:
+**Manejo de errores:**
 
-Se usa fclose para liberar los recursos asociados al fichero.
-Guarda este código en un archivo .c, compílalo y ejecútalo para probarlo.
+- Se verifica si el fichero se abre correctamente.
+- Se comprueba si la cantidad de datos leídos/escritos coincide con lo esperado.
 
-------Funcion que lea un fichero y lo gabre en uno binario ---------
+**Cierre del fichero:**
 
+- Se usa `fclose` para liberar los recursos asociados al fichero.
+
+Guarda este código en un archivo `.c`, compílalo y ejecútalo para probarlo.
+
+## Funcion que lea un fichero y lo gabre en uno binario
+
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -104,10 +115,11 @@ int main() {
 
     return 0;
 }
+```
 
---------Aquí tienes una función en C que lee un fichero binario y muestra su contenido por pantalla---------
+## Aquí tienes una función en C que lee un fichero binario y muestra su contenido por pantalla
 
-
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -141,30 +153,13 @@ int main() {
 
     return 0;
 }
+```
 
+## PRACTICA S08
 
+### Fichero `ej8.1.c` (a guardar en la carpeta `sesion8/src/`)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//PRACTICA S08
-//============
-
-//FICHERO ej8.1.c (a guardar en la carpeta sesion8/src/):
-
+```c
 XXXXXXXXXXXXXX		//incluimos nuestro fichero de cabecera funciones7.h, que contiene las declaraciones de nuestras funciones
 
 //a) Crea una estructura adecuada para almacenar toda la informacion de cada pelicula:
@@ -198,11 +193,11 @@ XXXXXXXXXXX	//cabecera de main
    //XXXXXXXXXXXXXXXX	//liberar el array dinamico (solo si usamos leeFichero2 con memoria dinamica)
    XXXXXXXXXXX		//cerrar el fichero
 }
+```
 
+### Fichero `funciones8.c` (a guardar en la carpeta `sesion8/src/`)
 
-//======================================================================================
-//FICHERO funciones8.c  (a guardar en la carpeta sesion8/src/):
-
+```c
 XXXXXXXXXXXXXXXXXXXX		//incluimos nuestro fichero de cabecera, que contiene las declaraciones de nuestras funciones
 
 int leeFichero1(XXXXXXXXXXXXXXXXXXXXXXXXXXXX)	//recibe el puntero a FILE y el array estatico (puntero y numero de elementos)
@@ -316,15 +311,11 @@ void mayorVotos(XXXXXXXXXXXXXXXXX)	//recibe el array de estructuras
         printf("Nombre: %s\tAño: %d\tRanking: %d\tVotos: %d\tMetascore: %d\n", XXXXXXXX, XXXXXXXX, XXXXXXXX, XXXXXXXX, XXXXXXXX);
    //debe salir 1 pelicula (Joker) con nº votos maximo 1117695
 }
+```
 
+### Fichero `funciones8.h` (a guardar en la carpeta `sesion8/include/`)
 
-
-
-
-
-//===============================================================================
-//FICHERO funciones8.h  (a guardar en la carpeta sesion8/include/):
-
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -346,5 +337,4 @@ void mayorVotos(XXXXXXXXXXXXXXXXX)	//recibe el array de estructuras
   void mayorVotos(pelis *array, int numElems);
 
 #endif		//final del bloque de compilacion condicional
-
-
+```

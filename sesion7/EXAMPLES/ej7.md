@@ -1,6 +1,8 @@
-// FUNCIONES FPRINTF Y FSCANF
+# Funciones `fprintf` y `fscanf`
 
-// Ejemplo de uso de funciones fprintf y fscanf
+Ejemplo de uso de funciones `fprintf` y `fscanf`.
+
+```c
 #include <stdio.h>
 int main()
 { FILE *pf;
@@ -31,10 +33,11 @@ int main()
   }
   fclose(pf);
 }
+```
 
-/*
-RESULTADO EN PANTALLA:
+## Resultado en pantalla
 
+```text
 1ª EJECUCIÓN:
 El fichero no existía, lo hemos creamos. Ejecute de nuevo el programa
 
@@ -46,4 +49,4 @@ Linea 2:   49999      6.28
 Variables leidas con fscanf:
 cad=Linea i=1 a=99999 b=3.14
 cad=Linea i=2 a=49999 b=6.28
-*/
+```

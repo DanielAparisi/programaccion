@@ -1,15 +1,18 @@
-// FUNCIONES FPUTC Y FGETC
-// Programa para copiar un fichero en otro byte a byte, con argumentos en línea de ordenes.
-// Equivalente al comando "copy" del sistema operativo Windows.
-// Fichero fuente de nombre CCOPY.c para generar un ejecutable de nombre CCOPY.exe.
+# Funciones `fputc` y `fgetc` — CCOPY
 
-/* El programa acepta dos argumentos desde la linea de órdenes: el nombre del fichero origen
-   y el nombre del fichero de destino (con o sin ruta de directorios). El programa confirma 
-   que el fichero origen existe. También chequea si el fichero de destino ya existe y en tal 
-   caso pide confirmación de sobreescritura. El programa muestra finalmente el número 
-   de bytes copiados. Forma de uso:  CCOPY nombreFicheroOrigen nombreFicheroDestino
-*/
+Programa para copiar un fichero en otro byte a byte, con argumentos en línea de ordenes.
+Equivalente al comando "copy" del sistema operativo Windows.
+Fichero fuente de nombre `CCOPY.c` para generar un ejecutable de nombre `CCOPY.exe`.
 
+> El programa acepta dos argumentos desde la linea de órdenes: el nombre del fichero origen
+> y el nombre del fichero de destino (con o sin ruta de directorios). El programa confirma
+> que el fichero origen existe. También chequea si el fichero de destino ya existe y en tal
+> caso pide confirmación de sobreescritura. El programa muestra finalmente el número
+> de bytes copiados.
+>
+> Forma de uso: `CCOPY nombreFicheroOrigen nombreFicheroDestino`
+
+```c
 #include <stdio.h>
 #include <stdlib.h>
 int main(int argc, char *argv[])
@@ -53,3 +56,4 @@ int main(int argc, char *argv[])
 
   fclose(pf1); fclose(pf2);		//cerramos ambos ficheros
 }
+```

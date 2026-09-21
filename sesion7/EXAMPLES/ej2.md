@@ -1,5 +1,6 @@
-// FUNCIONES FERROR, FEOF Y CLEARERR
+# Funciones `ferror`, `feof` y `clearerr`
 
+```c
 #include <stdio.h>
 
 int main()
@@ -27,3 +28,4 @@ int main()
 
   fclose(pf);
 }
+```

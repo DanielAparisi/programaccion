@@ -1,6 +1,8 @@
-// FUNCIONES FPUTC Y FGETC
-// Programa para leer una frase letra a letra desde teclado y grabarla en un fichero de texto
+# Funciones `fputc` y `fgetc`
 
+Programa para leer una frase letra a letra desde teclado y grabarla en un fichero de texto.
+
+```c
 #include <stdio.h>
 int main()
 {
@@ -28,3 +30,4 @@ int main()
   if (ferror(pf)) printf("ERROR al leer el fichero");
   fclose(pf);
 }
+```

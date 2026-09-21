@@ -1,5 +1,6 @@
-// FUNCIONES FOPEN Y FCLOSE
+# Funciones `fopen` y `fclose`
 
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -14,3 +15,4 @@ int main()
 
   fclose(pf);
 }
+```

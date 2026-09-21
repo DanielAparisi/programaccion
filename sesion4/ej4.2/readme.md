@@ -1,14 +1,17 @@
-/============================================================================================================
-//EJERCICIO 2º:
-//ATENCION: realizar primero el ejercicio en un único fichero fuente (ej4.2.c) que contenga a main() y a las funciones de usuario.
-//          Luego, una vez compilado y funcionando bien, dividirlo en 3 ficheros fuente:
-//          * ej4.2.c:  contendrá sólo a main()
-//          * misfunciones.c:  contendrá las funciones de usuario
-//          * misfunciones.h:  contendrá las declaraciones prototipo de las funciones, con compilación condicional
-//          Y volver a recompilarlo.
+# PRACTICA S04 — Ejercicio 2º
 
-//FICHERO ej4.2.c:
+> **ATENCION:** realizar primero el ejercicio en un único fichero fuente (`ej4.2.c`) que contenga a `main()` y a las funciones de usuario.
+> Luego, una vez compilado y funcionando bien, dividirlo en 3 ficheros fuente:
+>
+> - `ej4.2.c`: contendrá sólo a `main()`
+> - `misfunciones.c`: contendrá las funciones de usuario
+> - `misfunciones.h`: contendrá las declaraciones prototipo de las funciones, con compilación condicional
+>
+> Y volver a recompilarlo.
 
+## Fichero `ej4.2.c`
+
+```c
 XXXXXXXXXXXXXXXX				//stdio.h
 XXXX muestraArray(XXXXXXXXXXXXXXXXXXXXX);       //prototipos de funciones
 XXXX anulaMaximo(XXXXXXXXXXXXXXXXXXXXXX);
@@ -39,8 +42,11 @@ XXXXXXXXX		//cabecera de main
   printf("\nResultado de la tercera funcion:  ");
   XXXXXXXXXXXXXXXXXXXXX			//llamada a la función muestraArray
 }
+```
 
-//FUNCIONES:
+## Funciones
+
+```c
 XXXX muestraArray(XXXXXXXXXXXXX)   //recibimos el array: su dirección de inicio y su tamaño
 {
    XXXXXXXXXXXXXXXXXXXXXXXXX       //bucle para recorrer todo el array
@@ -77,7 +83,10 @@ XXXX ordenar(XXXXXXXXXXXXXXXXX)    //recibimos el array: su dirección de inicio
          XXXXXXXXXXXXXXXXXXXXXXXX  //si el elemento [j] y su siguiente [j+1] están mal ordenados
          {  XXXXXXXXXX; XXXXXXXXXXXXXXXXXX; XXXXXXXXXXX;  }     //intercambiar elementos [j] y [j+1]
 }
+```
 
+**Comando de compilación:**
 
-
-//Comando de compilación:  gcc ej4.2.c misfunciones.c -o ej4
+```bash
+gcc ej4.2.c misfunciones.c -o ej4
+```

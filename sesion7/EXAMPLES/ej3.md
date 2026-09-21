@@ -1,4 +1,6 @@
-// BORRAR, RENOMBRAR Y COPIAR FICHEROS
+# Borrar, renombrar y copiar ficheros
+
+```c
 #include <stdio.h>
 #include <stdlib.h>
 int existefich(char *cad);
@@ -50,3 +52,4 @@ int copiafich(char *orig, char *dest, int eswindows)   //copia el fichero "orig"
   free(p);         //liberar la memoria reservada
   return existefich(dest);  //comprobamos si existe el fichero copia
 }
+```
